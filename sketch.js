@@ -1,33 +1,40 @@
 let array = [];
 let backgroundColor = 200;
+let noiseOffset = 0.0;
+let strokeWidth = 5;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  background(500);
-  strokeWeight(7)
+  background(500, 500, 133, 5);
+  //strokeWeight(strokeWeight);
   noFill();
 }
 
 function draw() {
   //console.log(mouseIsPressed);
-  if (mouseIsPressed == true) {
-    // clear();
-    //ellipse(mouseX, mouseY, 100);
-    background(backgroundColor);
-    backgroundColor -= 7;
-    stroke(map(mouseX, 0, 600, 0, 255, true))
-    //line(mouseX, mouseY, pmouseX, pmouseY);
-    array.push([mouseX, mouseY]);
-    //beginShape();
-    //for(let i = 0; i < array.length; i++){
-    //line(array[i][0], array[i][1], array[i + 1][0], array[i + 1][1]);
-    //console.log(i);
-    //curveVertex(array[i][0], array[i][1])
-    //}
-    //endShape();
-    //line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
-  }
+  background(500, 500, 133, 5);
+  strokeWeight(strokeWidth);
+  noiseOffset = noiseOffset + 0.10;
+  strokeWidth = noise(noiseOffset) * 70;
+
+  //if (mouseIsPressed == true) {
+  // clear();
+  //ellipse(mouseX, mouseY, 100);
+  //background(backgroundColor);
+  //backgroundColor -= 7;
+  stroke(map(mouseX, 0, 600, 0, 255, true))
+  line(mouseX, mouseY, pmouseX, pmouseY);
+  //array.push([mouseX, mouseY]);
+  //beginShape();
+  //for(let i = 0; i < array.length; i++){
+  //line(array[i][0], array[i][1], array[i + 1][0], array[i + 1][1]);
+  //console.log(i);
+  //curveVertex(array[i][0], array[i][1])
+  //}
+  //endShape();
+  line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
 }
+
 
 function keyTyped() {
   //console.log(`key ${key} is being typed`)
@@ -35,14 +42,17 @@ function keyTyped() {
   if (key === 's') {
     //save image
     saveCanvas('fileName', 'png');
-  } else if (key === 'd') {
-    beginShape();
-    for (let i = 0; i < array.length; i++) {
-      //line(array[i][0], array[i][1], array[i + 1][0], array[i + 1][1]);
-      //console.log(i);
-      curveVertex(array[i][0], array[i][1])
-    }
-    endShape();
+    //} else if (key === 'd') {
+  } else if (key === 'c') {
+    //clear the image
+    clear();
+    //beginShape();
+    //for (let i = 0; i < array.length; i++) {
+    //line(array[i][0], array[i][1], array[i + 1][0], array[i + 1][1]);
+    //console.log(i);
+    //curveVertex(array[i][0], array[i][1])
+    //}
+    //endShape();
     //line(array[1][0], array[1][1]), array[2][0], array[2][1]);
   }
   //display image
