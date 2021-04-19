@@ -2,38 +2,67 @@ let array = [];
 let backgroundColor = 200;
 let noiseOffset = 0.0;
 let strokeWidth = 5;
+let al = [];
+let bg;
+let y = 0;
+//let img;
 
 function setup() {
+
   createCanvas(windowWidth, windowHeight);
+  //img = loadImage ('assets/pokedex.png');
+  textSize(30);
+  textAlign(CENTER);
   background(500, 500, 133, 5);
-  //strokeWeight(strokeWeight);
+
+  strokeWeight(strokeWeight);
   noFill();
+  cursor(CROSS);
+  bg = loadImage('assets/bg.png');
 }
 
 function draw() {
-  //console.log(mouseIsPressed);
-  background(500, 500, 133, 5);
-  strokeWeight(strokeWidth);
-  noiseOffset = noiseOffset + 0.10;
-  strokeWidth = noise(noiseOffset) * 70;
-
-  //if (mouseIsPressed == true) {
-  // clear();
-  //ellipse(mouseX, mouseY, 100);
-  //background(backgroundColor);
-  //backgroundColor -= 7;
-  stroke(map(mouseX, 0, 600, 0, 255, true))
-  line(mouseX, mouseY, pmouseX, pmouseY);
-  //array.push([mouseX, mouseY]);
-  //beginShape();
-  //for(let i = 0; i < array.length; i++){
-  //line(array[i][0], array[i][1], array[i + 1][0], array[i + 1][1]);
-  //console.log(i);
-  //curveVertex(array[i][0], array[i][1])
+  background(bg);
+  //stroke(226, 204, 0);
+  //line(0, y, width, y);
+  //y++;
+  //if (y > height) {
+    //y = 0;
   //}
-  //endShape();
-  line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
+  //cursor('')
+  //console.log(mouseIsPressed);
+
+  var size = document.getElementById('brushSize').value;
+
+  var colour = document.getElementById("brushColor").value;;
+  if (mouseIsPressed) {
+    rect(mouseX, mouseY, size, size);
+    fill(colour);
+    noStroke();
+  }
 }
+//background(500, 500, 133, 5);
+//strokeWeight(strokeWidth);
+noiseOffset = noiseOffset + 0.10;
+//strokeWidth = noise(noiseOffset) * 70;
+
+//if (mouseIsPressed == true) {
+// clear();
+//ellipse(mouseX, mouseY, 100);
+//background(backgroundColor);
+//backgroundColor -= 7;
+//stroke(map(mouseX, 0, 600, 0, 255, true))
+//line(mouseX, mouseY, pmouseX, pmouseY);
+//array.push([mouseX, mouseY]);
+//beginShape();
+//for(let i = 0; i < array.length; i++){
+//line(array[i][0], array[i][1], array[i + 1][0], array[i + 1][1]);
+//console.log(i);
+//curveVertex(array[i][0], array[i][1])
+//}
+//endShape();
+//line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
+
 
 
 function keyTyped() {
@@ -65,6 +94,6 @@ function keyTyped() {
 function mousePressed() {
   //console.log("mouse pressed function");
   array = [];
-  backgroundColor = 255;
+  //backgroundColor = 255;
   //console.log(array)
 }
