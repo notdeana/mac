@@ -5,12 +5,14 @@ let strokeWidth = 5;
 let al = [];
 let bg;
 let y = 0;
-//let img;
-
+let img;
+function preload() {
+  bg = loadImage('assets/bg.png');
+}
 function setup() {
 
   createCanvas(windowWidth, windowHeight);
-  //img = loadImage ('assets/pokedex.png');
+
   textSize(30);
   textAlign(CENTER);
   background(500, 500, 133, 5);
@@ -18,16 +20,17 @@ function setup() {
   strokeWeight(strokeWeight);
   noFill();
   cursor(CROSS);
-  bg = loadImage('assets/bg.png');
+  background(bg);
+  //bg = loadImage('assets/bg.png');
 }
 
 function draw() {
-  background(bg);
+  img = loadImage ('assets/pokedex.png');
   //stroke(226, 204, 0);
   //line(0, y, width, y);
   //y++;
   //if (y > height) {
-    //y = 0;
+  //y = 0;
   //}
   //cursor('')
   //console.log(mouseIsPressed);
