@@ -1,20 +1,20 @@
 html {
-  margin: 0;
-  padding: 0;
+  margin: 10;
+  padding: 10;
 }
 body{
-  margin: 100px auto 0 auto;
-  width: 70%;
-  text-align: center;
+  margin: 7px auto 7px auto;
+  width: 40%;
+  text-align: left;
   font-style: oblique;
   font-family: "courier", monospace;
 }
 canvas {
     margin: auto;
-    top: 0;
-    left: 0;
+    top: 17;
+    left: 10;
     position: absolute;
   display: block;
-  border: 15px solid red;
+  border: 7px solid red;
   z-index: -1
 }

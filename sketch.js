@@ -8,24 +8,31 @@ let y = 0;
 let img;
 function preload() {
   bg = loadImage('assets/bg.png');
+    img = loadImage ('assets/pokedex.png');
 }
 function setup() {
 
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(1000, 700);
 
   textSize(30);
-  textAlign(CENTER);
-  background(500, 500, 133, 5);
+  textAlign(RIGHT)
+  //textAlign(CENTER);
+//  background(500, 500, 133, 5);
 
   strokeWeight(strokeWeight);
   noFill();
   cursor(CROSS);
   background(bg);
+  imageMode(CORNER);
+    //image(img, 10, 10, 90, 40);
+  //image(img, 50, 50, 80, 80);
+
   //bg = loadImage('assets/bg.png');
 }
 
 function draw() {
-  img = loadImage ('assets/pokedex.png');
+image(img, 0, 0);
+
   //stroke(226, 204, 0);
   //line(0, y, width, y);
   //y++;
